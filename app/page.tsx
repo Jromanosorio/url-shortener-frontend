@@ -8,7 +8,7 @@ import { useLocalStorage } from "./hooks/useLocalStorage";
 export default function Home() {
   const [link, setLink] = useState("")
   const [list, setList] = useState<any[]>([])
-  const { storedValue, setValue, removeValue } = useLocalStorage<any[]>("shortenedLinks", [])
+  const { storedValue, setValue } = useLocalStorage<any[]>("shortenedLinks", [])
 
   const getShortUrl = async (e: any) => {
     e.preventDefault()
