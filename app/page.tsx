@@ -1,21 +1,32 @@
 "use client"
 
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { FaRegClipboard, FaScissors } from "react-icons/fa6";
 import { shortURL } from "./services/api.service";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 
+interface ApiResponse {
+  data: {
+    _id: string,
+    createdAt: string,
+    link: string,
+    short: string,
+    updatedAt: string
+  },
+  shortedLink: string
+}
+
 export default function Home() {
   const [link, setLink] = useState("")
-  const [list, setList] = useState<any[]>([])
-  const { storedValue, setValue, removeValue } = useLocalStorage<any[]>("shortenedLinks", [])
+  const [list, setList] = useState<ApiResponse[]>([])
+  const { storedValue, setValue } = useLocalStorage<ApiResponse[]>("shortenedLinks", [])
 
-  const getShortUrl = async (e: any) => {
+  const getShortUrl = async (e: FormEvent) => {
     e.preventDefault()
 
     const data = await shortURL(link)
 
-    if (!list.some((item: any) => item.shortedLink === data.shortedLink)) {
+    if (!list.some((item: ApiResponse) => item.shortedLink === data.shortedLink)) {
       setList([...list, data])
       setValue([...list, data])
     }
@@ -61,7 +72,7 @@ export default function Home() {
                 </thead>
                 <tbody>
                   {
-                    list.map((item: any, idx: number) => {
+                    list.map((item: ApiResponse, idx: number) => {
                       return (
                         <tr key={idx}>
                           <td className="p-2 text-center">{idx + 1}</td>
