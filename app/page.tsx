@@ -66,7 +66,7 @@ export default function Home() {
                 <thead>
                   <tr className="border-b-2 border-gray-600">
                     <th className="mx-auto py-1 px-3">Order</th>
-                    <th className="mx-auto py-1 px-3">URL Original</th>
+                    <th className="mx-auto py-1 px-3 hidden md:table-cell">URL Original</th>
                     <th className="mx-auto py-1 px-3">URL Acortada</th>
                   </tr>
                 </thead>
