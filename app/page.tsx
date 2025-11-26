@@ -39,22 +39,22 @@ export default function Home() {
   }, [storedValue])
 
   return (
-    <div className="flex items-center justify-items-center min-h-screen px-5 gap-16 bg-dark">
+    <div className="flex items-center justify-items-center min-h-screen px-2 sm:px-5 gap-16 bg-dark min-w-[250px]">
       <main className="main mx-auto">
         <div>
-          <h1 className="text-green text-4xl md:text-6xl! font-orbitron! font-semibold">URL Shortener</h1>
-          <p className="text-white font-medium text-lg md:text-2xl">Acorta tus <span className="text-green">enlaces</span> al instante</p>
+          <h1 className="text-green text-2xl md:text-6xl! font-orbitron! font-semibold">URL Shortener</h1>
+          <p className="text-white font-medium text-md md:text-2xl">Acorta tus <span className="text-green">enlaces</span> al instante</p>
           <form className="mt-8 flex gap-5 md:flex-row flex-col w-full" onSubmit={getShortUrl}>
             <input
               type="text"
               name="link"
               autoComplete="off"
-              className="md:min-w-xl text-white border-2 outline-none py-3 px-3 border-gray-600 rounded-md focus:border-green transition easy duration-200"
+              className="w-full md:min-w-xl text-white border-2 outline-none py-3 px-3 border-gray-600 rounded-md focus:border-green transition easy duration-200"
               placeholder="Pega aquí tu url..."
               onChange={(e) => setLink(e.target.value)}
               value={link}
             />
-            <button type="submit" onClick={getShortUrl} className="bg-green py-3 px-4 font-bold flex justify-center items-center gap-3 rounded-md cursor-pointer hover:bg-green-600 transition easy duration-200">
+            <button type="submit" onClick={getShortUrl} className="w-full bg-green py-3 px-4 font-bold flex justify-center items-center gap-3 rounded-md cursor-pointer hover:bg-green-600 transition easy duration-200">
               <FaScissors /> Acortar URL
             </button>
           </form>
@@ -85,7 +85,7 @@ export default function Home() {
                 </tbody>
               </table>
             ) : (
-              <p className="text-white font-medium text-xl">No se han acortado enlaces</p>
+              <p className="text-white font-medium text-md md:text-xl">No se han acortado enlaces</p>
             )
           }
         </div>
