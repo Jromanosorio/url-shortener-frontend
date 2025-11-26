@@ -44,7 +44,7 @@ export default function Home() {
         <div>
           <h1 className="text-green text-6xl! font-orbitron! font-semibold">URL Shortener</h1>
           <p className="text-white font-medium text-2xl">Acorta tus <span className="text-green">enlaces</span> al instante</p>
-          <form className="mt-8 flex gap-5">
+          <form className="mt-8 flex gap-5 md:flex-row flex-col " onSubmit={getShortUrl}>
             <input
               type="text"
               name="link"
@@ -76,7 +76,7 @@ export default function Home() {
                       return (
                         <tr key={idx}>
                           <td className="p-2 text-center">{idx + 1}</td>
-                          <td className="p-2 max-w-md truncate text-start">{item.data.link}</td>
+                          <td className="p-2 max-w-md truncate text-start hidden md:table-cell">{item.data.link}</td>
                           <td className="py-2 px-5 max-w-md text-green text-start flex items-center justify-between gap-2">{item.shortedLink} <FaRegClipboard onClick={() => navigator.clipboard.writeText(item.shortedLink)} className="cursor-pointer text-gray-400 hover:text-green transition easy duration-200" /> </td>
                         </tr>
                       )
