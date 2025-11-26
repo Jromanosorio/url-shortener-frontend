@@ -39,22 +39,22 @@ export default function Home() {
   }, [storedValue])
 
   return (
-    <div className="flex items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 bg-dark">
+    <div className="flex items-center justify-items-center min-h-screen px-5 gap-16 bg-dark">
       <main className="main mx-auto">
         <div>
-          <h1 className="text-green text-6xl! font-orbitron! font-semibold">URL Shortener</h1>
-          <p className="text-white font-medium text-2xl">Acorta tus <span className="text-green">enlaces</span> al instante</p>
-          <form className="mt-8 flex gap-5 md:flex-row flex-col " onSubmit={getShortUrl}>
+          <h1 className="text-green text-4xl md:text-6xl! font-orbitron! font-semibold">URL Shortener</h1>
+          <p className="text-white font-medium text-lg md:text-2xl">Acorta tus <span className="text-green">enlaces</span> al instante</p>
+          <form className="mt-8 flex gap-5 md:flex-row flex-col w-full" onSubmit={getShortUrl}>
             <input
               type="text"
               name="link"
               autoComplete="off"
-              className="min-w-md text-white border-2 outline-none py-3 px-3 border-gray-600 rounded-md focus:border-green transition easy duration-200"
+              className="md:min-w-xl text-white border-2 outline-none py-3 px-3 border-gray-600 rounded-md focus:border-green transition easy duration-200"
               placeholder="Pega aquí tu url..."
               onChange={(e) => setLink(e.target.value)}
               value={link}
             />
-            <button type="submit" onClick={getShortUrl} className="bg-green py-3 px-4 font-bold flex items-center gap-3 rounded-md cursor-pointer hover:bg-green-600 transition easy duration-200">
+            <button type="submit" onClick={getShortUrl} className="bg-green py-3 px-4 font-bold flex justify-center items-center gap-3 rounded-md cursor-pointer hover:bg-green-600 transition easy duration-200">
               <FaScissors /> Acortar URL
             </button>
           </form>
